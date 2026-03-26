@@ -1,26 +1,32 @@
 [
-  {
-    "paciente": "kainan",
-    "tipo": "o+",
-    "quantidade": 10
-  },
-  {
-    "paciente": "Vinicius",
-    "tipo": "B-",
-    "quantidade": 5
-  },
-  {
-    "paciente": "Maicon",
-    "tipo": "A+",
-    "quantidade": 12
-  },
-
- {
-    "paciente": "Igor JS(VULGO AMARELAO)",
-    "tipo": "o-",
-    "quantidade": 6
-  }
+    {
+        "paciente": "kainan",
+        "sangue": "o+",
+        "quantidade": 10
+    },
+    {
+        "paciente": "Vinicius",
+        "sangue": "B-",
+        "quantidade": 5
+    },
+    {
+        "paciente": "Maicon",
+        "sangue": "A+",
+        "quantidade": 12
+    },
+    {
+        "paciente": "Igor JS(VULGO AMARELAO)",
+        "sangue": "o-",
+        "quantidade": 6
+    },
+    {
+        "paciente": "Pedro",
+        "sangue": "o+",
+        "quantidade": 12
+    },
+    {
+        "paciente": "Pedro",
+        "sangue": "o+",
+        "quantidade": 10
+    }
 ]
-
-  
-
