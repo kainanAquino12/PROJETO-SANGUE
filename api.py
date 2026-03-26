@@ -1,6 +1,37 @@
 from flask import Flask, json,request, jsonify
 
 app = Flask(__name__)
+@app.post('/doadores')
+def criar_doadores():
+    dados = request.get_json()
+
+    if not dados.get('paciente'):
+        return jsonify({"error": "O campo 'paciente' é obrigatório."}), 400
+        
+
+    with open ('doadores.json', 'r') as f:
+        doadores = json.load(f)
+    doadores.append(dados)
+
+    with open ('doadores.json', 'w') as f:
+        json.dump(doadores, f, indent=4, ensure_ascii=False)
+
+    resposta = {
+        "message": "Doador criado com sucesso",  
+    }
+    return jsonify(resposta), 201
+
+ 
+
+    with open('doadores.json', 'r') as f:
+        doadores = json.load(f)
+    
+    doadores.append(dados)
+    
+    with open('doadores.json', 'w') as f:
+        json.dump(doadores, f, indent=4)
+    
+    return jsonify(dados), 201
 
 app.json.sort_keys = False
 @app.route('/doadores', methods=['GET'])
