@@ -96,3 +96,132 @@ Este arquivo JSON representa uma lista de doações registradas no sistema atrav
 ![alt text](image-7.png)
 
 ![alt text](image-8.png)
+
+
+
+
+
+## <span style="color:blue"> VALIDAÇÃO/doadores</span>
+- Arquivo: Endpoint /doadores (API Flask)
+- O que faz: Recebe e valida dados de doadores enviados via requisição POST.
+- Foco: Verifica se o campo paciente existe e se é do tipo texto (string), utilizando isinstance.
+- Uso: Utilizado para garantir que os dados enviados para o sistema estejam corretos antes de serem processados ou armazenados.
+
+Este trecho de código representa uma rota da API que recebe dados em formato JSON através de requisições do tipo POST. Ele valida se o campo paciente foi informado e utiliza a função isinstance para garantir que o valor seja do tipo string. Caso alguma dessas validações falhe, retorna uma mensagem de erro com código HTTP apropriado. Isso ajuda a manter a integridade e o padrão dos dados no sistema de cadastro de doadores.
+
+![alt text](image-9.png)
+
+
+
+## <span style="color:red"> VALIDAÇÃO/sangue</span>
+Arquivo: Endpoint /sangue (API Flask)
+O que faz: Recebe e valida dados relacionados ao tipo sanguíneo e quantidade doada via requisição POST.
+Foco: Verifica se o campo sangue existe e se é do tipo texto (string), utilizando isinstance, além de validar a presença do campo quantidade.
+Uso: Utilizado para garantir que as informações sobre o sangue doado estejam corretas antes de serem processadas ou armazenadas no sistema.
+
+Este trecho de código representa uma rota da API que recebe dados em formato JSON através de requisições do tipo POST. Ele valida se o campo sangue foi informado corretamente e utiliza a função isinstance para garantir que o valor seja do tipo string. Também verifica a existência do campo quantidade. Caso alguma validação falhe, retorna uma mensagem de erro com código HTTP apropriado. Isso assegura a integridade dos dados no controle de doações de sangue.
+
+![alt text](image-10.png)
+## <span style="color:pink"> VALIDAÇÃO/estoque</span>
+Arquivo: Validação de dados de estoque/doação (API Flask)
+O que faz: Recebe e valida informações sobre o tipo de sangue e quantidade disponível via requisição POST.
+Foco: Verifica se o campo tipo existe, se não está vazio e se é do tipo texto (string), utilizando isinstance, além de validar a presença do campo quantidade.
+Uso: Utilizado para garantir que os dados relacionados ao tipo sanguíneo estejam corretos antes de serem registrados no sistema de estoque de sangue.
+
+Este trecho de código representa uma validação dentro de uma rota da API que recebe dados em formato JSON. Ele verifica se o campo tipo foi informado corretamente e utiliza a função isinstance para garantir que o valor seja do tipo string. Também valida se o campo quantidade está presente. Caso alguma dessas verificações falhe, retorna uma mensagem de erro com código HTTP apropriado. Isso assegura a consistência dos dados no controle de estoque de sangue.
+![alt text](image-11.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## <span style="color:purple">Tabelas de Validação das Rotas POST</span>
+
+
+
+
+### POST /doadores
+
+| Rota       | Método | Campo    | Tipo esperado | Obrigatório |
+|------------|--------|----------|---------------|-------------|
+| /doadores  | POST   | paciente | string        | Sim         |
+| /doadores  | POST   | idade    | inteiro       | Sim         |
+
+**Exemplo de mensagens de erro para POST /doadores:**
+
+| Campo    | Situação       | Mensagem retornada                  | Status code |
+|----------|----------------|-------------------------------------|-------------|
+| paciente | ausente        | O campo 'paciente' é obrigatório.   | 400         |
+| paciente | tipo inválido  | 'paciente' deve ser um texto (string). | 422      |
+| idade    | ausente        | O campo 'idade' é obrigatório.      | 400         |
+| idade    | tipo inválido  | 'idade' deve ser um número inteiro. | 422         |
+
+### POST /estoque
+
+| Rota     | Método | Campo      | Tipo esperado | Obrigatório |
+|----------|--------|------------|---------------|-------------|
+| /estoque | POST   | tipo       | string        | Sim         |
+| /estoque | POST   | quantidade | inteiro       | Sim         |
+
+**Exemplo de mensagens de erro para POST /estoque:**
+
+| Campo      | Situação       | Mensagem retornada                  | Status code |
+|------------|----------------|-------------------------------------|-------------|
+| tipo       | ausente        | O campo 'tipo' é obrigatório.       | 400         |
+| tipo       | tipo inválido  | 'tipo' deve ser um texto (string).  | 422         |
+| quantidade | ausente        | O campo 'quantidade' é obrigatório. | 400         |
+| quantidade | tipo inválido  | 'quantidade' deve ser um número inteiro. | 422      |
+
+### POST /sangue
+
+| Rota    | Método | Campo      | Tipo esperado | Obrigatório |
+|---------|--------|------------|---------------|-------------|
+| /sangue | POST   | sangue     | string        | Sim         |
+| /sangue | POST   | quantidade | inteiro       | Sim         |
+| /sangue | POST   | data       | string        | Não         |
+
+**Exemplo de mensagens de erro para POST /sangue:**
+
+| Campo      | Situação       | Mensagem retornada                  | Status code |
+|------------|----------------|-------------------------------------|-------------|
+| sangue     | ausente        | O campo 'sangue' é obrigatório.     | 400         |
+| sangue     | tipo inválido  | 'sangue' deve ser um texto (string).| 422         |
+| quantidade | ausente        | O campo 'quantidade' é obrigatório. | 400         |
+| quantidade | tipo inválido  | 'quantidade' deve ser um número inteiro. | 422      |
+| data       | tipo inválido  | 'data' deve ser um texto (string).  | 422         |
+
+**Status codes utilizados**
+
+| Código | Situação                          |
+|--------|-----------------------------------|
+| 201    | Recurso criado com sucesso        |
+| 400    | Campo obrigatório ausente         |
+| 422    | Campo presente, mas com tipo de dado inválido |
