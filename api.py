@@ -1,8 +1,9 @@
 from flask import Flask, json, request, jsonify
 import json
-
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)
 
 def carregar () :
     with open('doadores.json', 'r') as f:
