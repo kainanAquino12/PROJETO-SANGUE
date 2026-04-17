@@ -63,23 +63,6 @@ Exemplo:
 - `GET /doadores2?paciente=Maria&idade=30`
 
 
-## <span style="color:red">GET /doadores/<id></span>
-- Arquivo: doadores.json
-- Endpoint: `/doadores/<id>`
-- Método HTTP: GET
-- Parâmetros de path:
-  - `id` (inteiro, obrigatório)
-
-- O que faz: Retorna os dados de um doador específico pelo seu identificador.
-- Uso: Consultar detalhes de um doador individual.
-
-Comportamento esperado:
-- Se o ID existir: retorna o objeto JSON do doador com status `200`.
-- Se o ID não for encontrado: retorna uma mensagem de erro com status `404`.
-
-Exemplo de retorno quando não encontrado:
-- `{"error": "Doador não encontrado."}`
-
 
 
 ## <span style="color:gold">GET /estoque</span>
@@ -289,8 +272,10 @@ http://127.0.0.1:5000/doadores2?idade=21 (URL QUE USEI)
 
 
 
+
 BUSCA POR ID (doadores)
 ![alt text](image-19.png)
+
 ![alt text](image-20.png)
 
 ID NÃO ENCONTRADO
@@ -364,7 +349,11 @@ Este endpoint retorna os dados em formato JSON. A busca é feita utilizando o id
 http://127.0.0.1:5000/sangue2?paciente=Maicon (URL QUE USEI)
 
 
+
+
 BUSCA POR ID (sangue)
+
+
 ![alt text](image-31.png)
 
 ![alt text](image-33.png)
