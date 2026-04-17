@@ -280,6 +280,7 @@ Foco: Filtra os dados dos doadores principalmente pelo campo idade (ou id, depen
 Uso: Utilizado para consultar e listar voluntários já cadastrados, permitindo buscas específicas através de parâmetros na URL (query params).
 
 Este endpoint retorna os dados dos doadores em formato JSON. A busca é feita a partir de parâmetros informados na requisição (ex: ?idade=21), permitindo localizar e visualizar os registros que atendem aos critérios definidos.
+
 ![alt text](image-17.png)
 ![alt text](image-18.png)
 
