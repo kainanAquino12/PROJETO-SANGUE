@@ -91,14 +91,13 @@ GET /doadores/<int:id>
 ### 🔍 Busca por idade
 
 
-![alt text](image-1.png)
+![alt text](assets/idade.png)
 
 
 
 ### 🆔 Busca por ID
 
-
-![alt text](image.png)
+![alt text](assets/id2.png)
 
 
 ---
