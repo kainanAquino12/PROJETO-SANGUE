@@ -5,17 +5,25 @@ from flask_cors import CORS
 app = Flask(__name__)
 CORS(app)
 
-def carregar () :
+def carregardoador () :
     with open('doadores.json', 'r') as f:
         return json.load(f)
     
+def carregarestoque () :
+    with open('estoque.json', 'r') as f:
+        return json.load(f)
+
+def carregarsangue () :
+    with open('sangue.json', 'r') as f:
+        return json.load(f)
+
 def salvar(doadores):
     with open('doadores.json', 'w') as f:
         json.dump(doadores, f, indent=4)    
 
 @app.get('/doadores/<int:id>')
 def get_doadores3(id):
-    doadores = carregar()
+    doadores = carregardoador()
     for doador in doadores:
         if doador.get("id") == id:
             return jsonify(doador), 200
@@ -85,6 +93,16 @@ def listar_doadores():
 #  ESTOQUE
 # ─────────────────────────────────────────
 
+@app.get('/estoque/<int:id>')
+def get_estoque(id):
+    estoque = carregarestoque()
+    for item in estoque:
+        if item.get("id") == id:
+            return jsonify(item), 200
+    return jsonify({"error": "Item de estoque não encontrado."}), 404
+
+
+
 @app.post('/estoque')
 def criar_estoque():
     dados = request.get_json()
@@ -119,12 +137,40 @@ def listar_estoque():
     with open('estoque.json', 'r') as f:
         estoque = json.load(f)
 
+
+
+@app.get('estoque')
+def get_esotoque2():
+    estoque = carregarestoque()
+
+    doador = request.args.get('doador')
+    vencimento = request.args.get('vencimento')
+
+    resultado = []
+    for item in estoque:
+        if  doador and item.get('doador') != doador:
+            continue
+        if vencimento and item.get('vencimento') != str(vencimento):
+            continue    
+        resultado.append(item) 
+    return jsonify(resultado), 200   
+
     return jsonify(estoque)
 
 
 # ─────────────────────────────────────────
 #  SANGUE
 # ─────────────────────────────────────────
+
+@app.get('/sangue/<int:id>')
+def get_sangue(id):
+    sangue = carregarsangue()
+    for item in sangue:
+        if item.get("id") == id:
+            return jsonify(item), 200
+    return jsonify({"error": "Item de sangue não encontrado."}), 404
+
+
 
 @app.post('/sangue')
 def criar_sangue():

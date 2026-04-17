@@ -266,3 +266,42 @@ Este trecho de código representa uma validação dentro de uma rota da API que 
 | 201    | Recurso criado com sucesso        |
 | 400    | Campo obrigatório ausente         |
 | 422    | Campo presente, mas com tipo de dado inválido |
+
+
+
+
+
+
+## <span style="color:purple">ID doadores</span>
+O que faz: Realiza a busca de doadores cadastrados no sistema com base em parâmetros enviados na requisição.
+
+Foco: Filtra os dados dos doadores principalmente pelo campo idade (ou id, dependendo da consulta), retornando nome do paciente, contato e idade.
+
+Uso: Utilizado para consultar e listar voluntários já cadastrados, permitindo buscas específicas através de parâmetros na URL (query params).
+
+Este endpoint retorna os dados dos doadores em formato JSON. A busca é feita a partir de parâmetros informados na requisição (ex: ?idade=21), permitindo localizar e visualizar os registros que atendem aos critérios definidos.
+![alt text](image-16.png)
+
+
+
+
+
+
+## <span style="color:red">ID estoque</span>
+O que faz: Realiza a busca de informações no estoque com base no identificador (id) enviado na requisição.
+Foco: Retorna os dados do estoque vinculados ao doador, incluindo nome do doador, localização do estoque e tipo sanguíneo.
+Uso: Utilizado para consultar registros específicos do estoque, permitindo localizar um item exato através do parâmetro informado na URL (ex: ?id=2).
+Este endpoint retorna os dados do estoque em formato JSON. A busca é feita a partir do parâmetro id enviado na requisição, permitindo identificar e visualizar informações detalhadas de um registro específico dentro do sistema.
+
+![alt text](image-14.png)
+
+## <span style="color:blue">ID sangue</span>
+O que faz: Realiza a busca de um registro específico relacionado a doadores de sangue a partir do identificador (id) informado na rota.
+
+Foco: Retorna os dados do paciente, incluindo nome, contato e idade, com base no id fornecido.
+
+Uso: Utilizado para consultar um doador específico diretamente pela URL, permitindo acesso rápido a um único registro (ex: /sangue/2).
+
+Este endpoint retorna os dados em formato JSON. A busca é feita utilizando o id diretamente na rota, possibilitando a identificação e visualização de um registro específico dentro do sistema.
+![alt text](image-15.png)
+
