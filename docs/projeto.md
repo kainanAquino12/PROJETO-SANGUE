@@ -15,7 +15,7 @@
 
 Controle de entrada de bolsas por doação.Este arquivo JSON armazena uma lista de pacientes, contendo o nome, tipo sanguíneo e uma quantidade associada a cada um. Ele é utilizado para organizar e facilitar o controle dessas informações dentro do sistema, podendo representar dados como estoque, necessidade ou registros relacionados ao sangue.
 
-![alt text](image.png)
+![alt text](../assets/image.png)
 
 http://127.0.0.1:5000/sangue
 
@@ -39,7 +39,7 @@ Comportamento esperado:
 
 Este arquivo JSON representa a resposta de uma requisição do tipo GET, retornando uma lista de doadores/pacientes com informações como nome, contato e idade. Ele é utilizado para permitir a consulta e visualização desses dados dentro do sistema.
 
-![alt text](image-1.png)
+![alt text](../assets/image-1.png)
 
 http://127.0.0.1:5000/doadores
 
@@ -76,7 +76,7 @@ Exemplo:
 
 Este arquivo JSON representa a resposta de uma requisição do tipo GET, contendo uma lista de bolsas de sangue em estoque. Cada item inclui o doador, tipo sanguíneo, data de vencimento e o setor de armazenamento. Ele é utilizado para consulta e monitoramento do estoque.
 
-![alt text](image-2.png)
+![alt text](../assets/image-2.png)
 
 http://127.0.0.1:5000/estoque
 
@@ -94,9 +94,9 @@ http://127.0.0.1:5000/estoque
 - Uso: Utilizado para cadastro e atualização do registro de voluntários no sistema.
 
 Este arquivo JSON representa os dados dos doadores cadastrados no sistema. Cada item informa o nome do paciente, contato e idade, permitindo o cadastro, consulta e monitoramento dos voluntários.
-![alt text](image-3.png)
+![alt text](../assets/image-3.png)
 
-![alt text](image-4.png)
+![alt text](../assets/image-4.png)
 
 
 ##  <span style="color:green">POST /estoque</span>
@@ -106,8 +106,8 @@ Este arquivo JSON representa os dados dos doadores cadastrados no sistema. Cada 
 
 - Uso: Utilizado para controle, organização e monitoramento das bolsas de sangue disponíveis.
 
-![alt text](image-5.png)
-![alt text](image-6.png)
+![alt text](../assets/image-5.png)
+![alt text](../assets/image-6.png)
 
 ## <span style="color:blue">POST /sangue</span>
 - Arquivo: sangue.json
@@ -117,9 +117,9 @@ Este arquivo JSON representa os dados dos doadores cadastrados no sistema. Cada 
 
 Este arquivo JSON representa uma lista de doações registradas no sistema através de requisições do tipo POST. Cada item inclui o nome do paciente (doador), o tipo sanguíneo e a quantidade doada. Ele é utilizado para controle das doações e apoio na gestão do estoque de sangue.
 
-![alt text](image-7.png)
+![alt text](../assets/image-7.png)
 
-![alt text](image-8.png)
+![alt text](../assets/image-8.png)
 
 
 
@@ -133,7 +133,7 @@ Este arquivo JSON representa uma lista de doações registradas no sistema atrav
 
 Este trecho de código representa uma rota da API que recebe dados em formato JSON através de requisições do tipo POST. Ele valida se o campo paciente foi informado e utiliza a função isinstance para garantir que o valor seja do tipo string. Caso alguma dessas validações falhe, retorna uma mensagem de erro com código HTTP apropriado. Isso ajuda a manter a integridade e o padrão dos dados no sistema de cadastro de doadores.
 
-![alt text](image-9.png)
+![alt text](../assets/image-9.png)
 
 
 
@@ -145,7 +145,7 @@ Uso: Utilizado para garantir que as informações sobre o sangue doado estejam c
 
 Este trecho de código representa uma rota da API que recebe dados em formato JSON através de requisições do tipo POST. Ele valida se o campo sangue foi informado corretamente e utiliza a função isinstance para garantir que o valor seja do tipo string. Também verifica a existência do campo quantidade. Caso alguma validação falhe, retorna uma mensagem de erro com código HTTP apropriado. Isso assegura a integridade dos dados no controle de doações de sangue.
 
-![alt text](image-10.png)
+![alt text](../assets/image-10.png)
 ## <span style="color:pink"> VALIDAÇÃO/estoque</span>
 Arquivo: Validação de dados de estoque/doação (API Flask)
 O que faz: Recebe e valida informações sobre o tipo de sangue e quantidade disponível via requisição POST.
@@ -153,7 +153,7 @@ Foco: Verifica se o campo tipo existe, se não está vazio e se é do tipo texto
 Uso: Utilizado para garantir que os dados relacionados ao tipo sanguíneo estejam corretos antes de serem registrados no sistema de estoque de sangue.
 
 Este trecho de código representa uma validação dentro de uma rota da API que recebe dados em formato JSON. Ele verifica se o campo tipo foi informado corretamente e utiliza a função isinstance para garantir que o valor seja do tipo string. Também valida se o campo quantidade está presente. Caso alguma dessas verificações falhe, retorna uma mensagem de erro com código HTTP apropriado. Isso assegura a consistência dos dados no controle de estoque de sangue.
-![alt text](image-11.png)
+![alt text](../assets/image-11.png)
 
 
 
@@ -264,9 +264,9 @@ Uso: Utilizado para consultar e listar voluntários já cadastrados, permitindo 
 
 Este endpoint retorna os dados dos doadores em formato JSON. A busca é feita a partir de parâmetros informados na requisição (ex: ?idade=21), permitindo localizar e visualizar os registros que atendem aos critérios definidos.
 
-![alt text](image-17.png)
+![alt text](../assets/image-17.png)
 
-![alt text](image-18.png)
+![alt text](../assets/image-18.png)
 
 http://127.0.0.1:5000/doadores2?idade=21 (URL QUE USEI)
 
@@ -274,9 +274,11 @@ http://127.0.0.1:5000/doadores2?idade=21 (URL QUE USEI)
 
 
 BUSCA POR ID (doadores)
-![alt text](image-19.png)
 
-![alt text](image-20.png)
+
+![alt text](../assets/image-19.png)
+
+![alt text](../assets/image-20.png)
 
 ID NÃO ENCONTRADO
 
@@ -286,8 +288,8 @@ percorre a lista
 se encontrar → retorna o objeto
 se não → retorna erro 404
 
-![alt text](image-21.png)
-![alt text](image-22.png)
+![alt text](../assets/image-21.png)
+![alt text](../assets/image-22.png)
 
 
 
@@ -301,9 +303,9 @@ Foco: Retorna os dados do estoque vinculados ao doador, incluindo nome do doador
 Uso: Utilizado para consultar registros específicos do estoque, permitindo localizar um item exato através do parâmetro informado na URL (ex: ?id=2).
 Este endpoint retorna os dados do estoque em formato JSON. A busca é feita a partir do parâmetro id enviado na requisição, permitindo identificar e visualizar informações detalhadas de um registro específico dentro do sistema.
 
-![alt text](image-23.png)
+![alt text](../assets/image-23.png)
 
-![alt text](image-24.png)
+![alt text](../assets/image-24.png)
 
 
 http://127.0.0.1:5000/estoque2?doador=Maicon (URL QUE USEI)
@@ -313,9 +315,9 @@ http://127.0.0.1:5000/estoque2?doador=Maicon (URL QUE USEI)
 
 BUSCAR POR ID (estoque)
 
-![alt text](image-25.png)
+![alt text](../assets/image-25.png)
 
-![alt text](image-26.png)
+![alt text](../assets/image-26.png)
 
 
 ID NÃO ENCONTRADO
@@ -325,9 +327,9 @@ Como funciona
 percorre a lista
 se encontrar → retorna o objeto
 se não → retorna erro 404
-![alt text](image-27.png)
+![alt text](../assets/image-27.png)
 
-![alt text](image-28.png)
+![alt text](../assets/image-28.png)
 
 
 
@@ -342,9 +344,9 @@ Uso: Utilizado para consultar um doador específico diretamente pela URL, permit
 Este endpoint retorna os dados em formato JSON. A busca é feita utilizando o id diretamente na rota, possibilitando a identificação e visualização de um registro específico dentro do sistema.
 
 
-![alt text](image-29.png)
+![alt text](../assets/image-29.png)
 
-![alt text](image-30.png)
+![alt text](../assets/image-30.png)
 
 http://127.0.0.1:5000/sangue2?paciente=Maicon (URL QUE USEI)
 
@@ -354,9 +356,9 @@ http://127.0.0.1:5000/sangue2?paciente=Maicon (URL QUE USEI)
 BUSCA POR ID (sangue)
 
 
-![alt text](image-31.png)
+![alt text](../assets/image-31.png)
 
-![alt text](image-33.png)
+![alt text](../assets/image-33.png)
 
 ID NÃO ENCONTRADO
 
@@ -366,6 +368,6 @@ percorre a lista
 se encontrar → retorna o objeto
 se não → retorna erro 404
 
-![alt text](image-34.png)
+![alt text](../assets/image-34.png)
 
-![alt text](image-35.png)
+![alt text](../assets/image-35.png)
