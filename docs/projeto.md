@@ -26,18 +26,59 @@ http://127.0.0.1:5000/sangue
 
 ##  <span style="color:lawngreen">GET /doadores</span>
 - Arquivo: doadores.json
+- Endpoint: `/doadores`
+- Método HTTP: GET
+- Parâmetros: nenhum
 
-- O que faz: Exibe o cadastro dos voluntários.
+- O que faz: Retorna a lista completa de doadores cadastrados.
+- Uso: Consultar todo o cadastro de voluntários.
 
-- Foco: Mostra o nome, o contato (WhatsApp/Telefone) e a idade.
-
-- Uso: Localizar o doador para triagem ou convocação.
+Comportamento esperado:
+- Sem parâmetros de query: retorna todos os doadores com status `200`.
+- Esta rota não faz filtro por query, apenas retorna a lista completa.
 
 Este arquivo JSON representa a resposta de uma requisição do tipo GET, retornando uma lista de doadores/pacientes com informações como nome, contato e idade. Ele é utilizado para permitir a consulta e visualização desses dados dentro do sistema.
 
 ![alt text](image-1.png)
 
 http://127.0.0.1:5000/doadores
+
+## <span style="color:lawngreen">GET /doadores2</span>
+- Arquivo: doadores.json
+- Endpoint: `/doadores2`
+- Método HTTP: GET
+- Parâmetros de query:
+  - `paciente` (string, opcional)
+  - `idade` (inteiro, opcional)
+
+- O que faz: Retorna uma lista de doadores filtrada por nome do paciente e/ou idade.
+- Uso: Buscar doadores que correspondam aos filtros informados.
+
+Comportamento esperado:
+- Quando houver itens correspondentes aos parâmetros de query: retorna a lista filtrada com status `200`.
+- Quando nenhum item corresponder ao filtro: retorna lista vazia `[]` com status `200`.
+- Quando nenhum parâmetro for informado: retorna todos os doadores cadastrados com status `200`.
+
+Exemplo:
+- `GET /doadores2?paciente=Maria&idade=30`
+
+
+## <span style="color:red">GET /doadores/<id></span>
+- Arquivo: doadores.json
+- Endpoint: `/doadores/<id>`
+- Método HTTP: GET
+- Parâmetros de path:
+  - `id` (inteiro, obrigatório)
+
+- O que faz: Retorna os dados de um doador específico pelo seu identificador.
+- Uso: Consultar detalhes de um doador individual.
+
+Comportamento esperado:
+- Se o ID existir: retorna o objeto JSON do doador com status `200`.
+- Se o ID não for encontrado: retorna uma mensagem de erro com status `404`.
+
+Exemplo de retorno quando não encontrado:
+- `{"error": "Doador não encontrado."}`
 
 
 
@@ -63,13 +104,13 @@ http://127.0.0.1:5000/estoque
 # 📂 <span style="color:cyan">Documentação da API - Doação de Sangue (POST) </span>
 
 ##  <span style="color:red">POST /doadores</span>
-- Arquivo: estoque.json
-- O que faz: Armazena as informações do estoque de sangue.
+- Arquivo: doadores.json
+- O que faz: Armazena as informações de um novo doador.
 
-- Foco: Contém o tipo sanguíneo e a quantidade disponível.
-- Uso: Utilizado para controle e atualização do estoque de sangue no sistema.
+- Foco: Contém o nome do paciente, contato e idade.
+- Uso: Utilizado para cadastro e atualização do registro de voluntários no sistema.
 
-Este arquivo JSON representa os dados do estoque de sangue, podendo ser atualizado através das rotas POST da API. Cada item informa o tipo sanguíneo e a quantidade disponível, permitindo o gerenciamento e monitoramento do estoque.
+Este arquivo JSON representa os dados dos doadores cadastrados no sistema. Cada item informa o nome do paciente, contato e idade, permitindo o cadastro, consulta e monitoramento dos voluntários.
 ![alt text](image-3.png)
 
 ![alt text](image-4.png)
