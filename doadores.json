@@ -19,32 +19,26 @@
     },
     {
         "id": 4,
-        "paciente": "Igor JS(VULGO AMARELAO)",
+        "paciente": "Igor JS",
         "contato": "+55 67 8422-7539",
         "idade": 18
     },
     {
         "id": 5,
-        "paciente": "jair",
+        "paciente": "Jair",
         "contato": "+55 45 9901-4258",
         "idade": 23
     },
     {
         "id": 6,
         "paciente": "Pedro",
-        "sangue": "o+",
-        "quantidade": 12
+        "contato": "+55 45 9999-9999",
+        "idade": 30
     },
     {
         "id": 7,
         "paciente": "Kinan",
         "contato": "+55 45 9901-4255",
         "idade": 67
-    },
-    {
-        "id": 1,
-        "paciente": "10",
-        "contato": "+55 45 9901-4255",
-        "idade": 21
     }
 ]

@@ -1,19 +1,19 @@
-from flask import Flask, json, request, jsonify
+from flask import Flask, request, jsonify
 import json
 from flask_cors import CORS
 
 app = Flask(__name__)
 CORS(app)
 
-def carregardoador () :
+def carregar_doador():
     with open('doadores.json', 'r') as f:
         return json.load(f)
     
-def carregarestoque () :
+def carregar_estoque():
     with open('estoque.json', 'r') as f:
         return json.load(f)
 
-def carregarsangue () :
+def carregar_sangue():
     with open('sangue.json', 'r') as f:
         return json.load(f)
 
@@ -23,7 +23,7 @@ def salvar(doadores):
 
 @app.get('/doadores/<int:id>')
 def get_doadores3(id):
-    doadores = carregardoador()
+    doadores = carregar_doador()
     for doador in doadores:
         if doador.get("id") == id:
             return jsonify(doador), 200
@@ -39,11 +39,12 @@ def get_doadores3(id):
 def criar_doadores():
     dados = request.get_json()
 
-   
+    if not dados:
+        return jsonify({"error": "JSON não enviado ou inválido."}), 400
+
     if not dados.get('paciente'):
         return jsonify({"error": "O campo 'paciente' é obrigatório."}), 400
 
-    
     if not isinstance(dados.get('paciente'), str):
         return jsonify({"error": "'paciente' deve ser um texto (string)."}), 422
 
@@ -63,9 +64,10 @@ def criar_doadores():
 
     return jsonify({"message": "Doador criado com sucesso."}), 201
 
+
 @app.get('/doadores2')
 def get_doadores1():
-    doadores = carregar()
+    doadores = carregar_doador()
 
     tipo = request.args.get('paciente')
     idade = request.args.get('idade')
@@ -95,7 +97,7 @@ def listar_doadores():
 
 @app.get('/estoque/<int:id>')
 def get_estoque(id):
-    estoque = carregarestoque()
+    estoque = carregar_estoque()
     for item in estoque:
         if item.get("id") == id:
             return jsonify(item), 200
@@ -139,9 +141,9 @@ def listar_estoque():
 
 
 
-@app.get('estoque')
-def get_esotoque2():
-    estoque = carregarestoque()
+@app.get('/estoque2')
+def get_estoque2():
+    estoque = carregar_estoque()
 
     doador = request.args.get('doador')
     vencimento = request.args.get('vencimento')
@@ -153,18 +155,33 @@ def get_esotoque2():
         if vencimento and item.get('vencimento') != str(vencimento):
             continue    
         resultado.append(item) 
-    return jsonify(resultado), 200   
-
-    return jsonify(estoque)
+    return jsonify(resultado), 200
 
 
 # ─────────────────────────────────────────
 #  SANGUE
 # ─────────────────────────────────────────
 
+@app.get('/sangue2')
+def get_sangue2():
+    sangue = carregar_sangue()
+
+    paciente = request.args.get('paciente')
+    quantidade = request.args.get('quantidade')
+
+    resultado = []
+    for item in sangue:
+        if  paciente and item.get('paciente') != paciente:
+            continue
+        if quantidade and item.get('quantidade') != int(quantidade):
+            continue    
+        resultado.append(item) 
+    return jsonify(resultado), 200   
+
+
 @app.get('/sangue/<int:id>')
 def get_sangue(id):
-    sangue = carregarsangue()
+    sangue = carregar_sangue()
     for item in sangue:
         if item.get("id") == id:
             return jsonify(item), 200
@@ -190,7 +207,7 @@ def criar_sangue():
     if not isinstance(dados.get('quantidade'), int):
         return jsonify({"error": "'quantidade' deve ser um número inteiro."}), 422
 
-    # Campo opcional — valida tipo só se vier preenchido
+    
     if 'data' in dados and not isinstance(dados.get('data'), str):
         return jsonify({"error": "'data' deve ser um texto (string)."}), 422
 
@@ -210,10 +227,8 @@ def listar_sangue():
     with open('sangue.json', 'r') as f:
         sangue = json.load(f)
 
+
+
     return jsonify(sangue)
-
-
-# ─────────────────────────────────────────
-
 if __name__ == '__main__':
     app.run(debug=True)

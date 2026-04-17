@@ -280,7 +280,28 @@ Foco: Filtra os dados dos doadores principalmente pelo campo idade (ou id, depen
 Uso: Utilizado para consultar e listar voluntários já cadastrados, permitindo buscas específicas através de parâmetros na URL (query params).
 
 Este endpoint retorna os dados dos doadores em formato JSON. A busca é feita a partir de parâmetros informados na requisição (ex: ?idade=21), permitindo localizar e visualizar os registros que atendem aos critérios definidos.
-![alt text](image-16.png)
+![alt text](image-17.png)
+![alt text](image-18.png)
+
+http://127.0.0.1:5000/doadores2?idade=21 (URL QUE USEI)
+
+
+
+BUSCA POR ID (doadores)
+![alt text](image-19.png)
+![alt text](image-20.png)
+
+ID NÃO ENCONTRADO
+
+Como funciona
+<int:id> → captura o ID da URL
+percorre a lista
+se encontrar → retorna o objeto
+se não → retorna erro 404
+
+![alt text](image-21.png)
+![alt text](image-22.png)
+
 
 
 
@@ -293,7 +314,33 @@ Foco: Retorna os dados do estoque vinculados ao doador, incluindo nome do doador
 Uso: Utilizado para consultar registros específicos do estoque, permitindo localizar um item exato através do parâmetro informado na URL (ex: ?id=2).
 Este endpoint retorna os dados do estoque em formato JSON. A busca é feita a partir do parâmetro id enviado na requisição, permitindo identificar e visualizar informações detalhadas de um registro específico dentro do sistema.
 
-![alt text](image-14.png)
+![alt text](image-23.png)
+
+![alt text](image-24.png)
+
+
+http://127.0.0.1:5000/estoque2?doador=Maicon (URL QUE USEI)
+
+
+
+
+BUSCAR POR ID (estoque)
+![alt text](image-25.png)
+![alt text](image-26.png)
+
+
+ID NÃO ENCONTRADO
+
+Como funciona
+<int:id> → captura o ID da URL
+percorre a lista
+se encontrar → retorna o objeto
+se não → retorna erro 404
+![alt text](image-27.png)
+![alt text](image-28.png)
+
+
+
 
 ## <span style="color:blue">ID sangue</span>
 O que faz: Realiza a busca de um registro específico relacionado a doadores de sangue a partir do identificador (id) informado na rota.
@@ -303,5 +350,25 @@ Foco: Retorna os dados do paciente, incluindo nome, contato e idade, com base no
 Uso: Utilizado para consultar um doador específico diretamente pela URL, permitindo acesso rápido a um único registro (ex: /sangue/2).
 
 Este endpoint retorna os dados em formato JSON. A busca é feita utilizando o id diretamente na rota, possibilitando a identificação e visualização de um registro específico dentro do sistema.
-![alt text](image-15.png)
 
+
+![alt text](image-29.png)
+![alt text](image-30.png)
+
+http://127.0.0.1:5000/sangue2?paciente=Maicon (URL QUE USEI)
+
+
+BUSCA POR ID (sangue)
+![alt text](image-31.png)
+![alt text](image-33.png)
+
+ID NÃO ENCONTRADO
+
+Como funciona
+<int:id> → captura o ID da URL
+percorre a lista
+se encontrar → retorna o objeto
+se não → retorna erro 404
+
+![alt text](image-34.png)
+![alt text](image-35.png)
