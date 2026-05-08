@@ -327,6 +327,7 @@ Como funciona
 percorre a lista
 se encontrar → retorna o objeto
 se não → retorna erro 404
+
 ![alt text](../assets/image-27.png)
 
 ![alt text](../assets/image-28.png)
@@ -371,3 +372,34 @@ se não → retorna erro 404
 ![alt text](../assets/image-34.png)
 
 ![alt text](../assets/image-35.png)
+
+
+
+
+
+## <span style="color:red">DELETE</span>
+DELETE  /doadores/<id>
+Remove permanentemente um doador do arquivo de armazenamento (doadores.json). Não requer body.
+
+![alt text](../assets/delete.png)
+
+
+![alt text](../assets/delete.png)
+
+
+ ## ID inexistente (deve retornar 404) ##
+
+![alt text](../assets/deleteerro.png)
+
+![alt text](../assets/deleteerro1.png)
+
+
+## <span style="color:blue">PUT</span>
+Atualiza completamente um item do estoque de sangue. O campo id é preservado conforme o parâmetro de path.
+![alt text](../assets/put1.png)
+
+
+ ## ID inexistente (deve retornar 404) ##
+
+ ![alt text](../assets/put2.png)
+
