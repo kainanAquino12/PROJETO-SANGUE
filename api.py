@@ -98,7 +98,6 @@ def atualizar_doador(id):
 
     for i, doador in enumerate(doadores):
         if doador.get("id") == id:
-            # Atualiza os campos, mas preserva o id original
             dados['id'] = id
             doadores[i] = dados
             salvar_doadores(doadores)
@@ -181,8 +180,8 @@ def atualizar_estoque(id):
         return jsonify({"error": "JSON não enviado ou inválido."}), 400
 
     for i, item in enumerate(estoque):
-        if item.get("id") == id:
-            # Atualiza os campos, mas preserva o id original
+        if item.get("id") == id:#
+             
             dados['id'] = id
             estoque[i] = dados
             salvar_estoque(estoque)
@@ -268,7 +267,7 @@ def atualizar_sangue(id):
 
     for i, item in enumerate(sangue):
         if item.get("id") == id:
-            # Atualiza os campos, mas preserva o id original
+             
             dados['id'] = id
             sangue[i] = dados
             salvar_sangue(sangue)

@@ -349,7 +349,7 @@ Este endpoint retorna os dados em formato JSON. A busca é feita utilizando o id
 
 ![alt text](../assets/image-30.png)
 
-http://127.0.0.1:5000/sangue2?paciente=Maicon (URL QUE USEI)
+http://127.0.0.1:5000/sangue2?paciente=Maicon 
 
 
 
